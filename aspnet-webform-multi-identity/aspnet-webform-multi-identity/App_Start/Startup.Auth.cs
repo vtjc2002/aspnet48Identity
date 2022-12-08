@@ -8,6 +8,7 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using aspnet_webform_multi_identity.Models;
+using System.Web.Configuration;
 
 namespace aspnet_webform_multi_identity
 {
@@ -48,8 +49,8 @@ namespace aspnet_webform_multi_identity
 
             // Uncomment the following lines to enable logging in with third party login providers
             app.UseMicrosoftAccountAuthentication(
-                clientId: "5a999114-53f3-4adb-b168-28c55da67ae9",
-                clientSecret: "ay-8Q~0NcGZiHBbUZb43AZSowYx1YCysmAVKoc1~");
+                clientId: WebConfigurationManager.AppSettings["AzureADClientId"],
+                clientSecret: WebConfigurationManager.AppSettings["AzureADClientSecret"]);
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
